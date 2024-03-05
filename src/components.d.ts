@@ -6,24 +6,84 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface XkabacAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface XkabacAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XkabacAmbulanceWlList {
     }
 }
+export interface XkabacAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXkabacAmbulanceWlEditorElement;
+}
+export interface XkabacAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXkabacAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLXkabacAmbulanceWlAppElement extends Components.XkabacAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXkabacAmbulanceWlAppElement: {
+        prototype: HTMLXkabacAmbulanceWlAppElement;
+        new (): HTMLXkabacAmbulanceWlAppElement;
+    };
+    interface HTMLXkabacAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXkabacAmbulanceWlEditorElement extends Components.XkabacAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXkabacAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXkabacAmbulanceWlEditorElement, ev: XkabacAmbulanceWlEditorCustomEvent<HTMLXkabacAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXkabacAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXkabacAmbulanceWlEditorElement, ev: XkabacAmbulanceWlEditorCustomEvent<HTMLXkabacAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXkabacAmbulanceWlEditorElement: {
+        prototype: HTMLXkabacAmbulanceWlEditorElement;
+        new (): HTMLXkabacAmbulanceWlEditorElement;
+    };
+    interface HTMLXkabacAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXkabacAmbulanceWlListElement extends Components.XkabacAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXkabacAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXkabacAmbulanceWlListElement, ev: XkabacAmbulanceWlListCustomEvent<HTMLXkabacAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXkabacAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXkabacAmbulanceWlListElement, ev: XkabacAmbulanceWlListCustomEvent<HTMLXkabacAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXkabacAmbulanceWlListElement: {
         prototype: HTMLXkabacAmbulanceWlListElement;
         new (): HTMLXkabacAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "xkabac-ambulance-wl-app": HTMLXkabacAmbulanceWlAppElement;
+        "xkabac-ambulance-wl-editor": HTMLXkabacAmbulanceWlEditorElement;
         "xkabac-ambulance-wl-list": HTMLXkabacAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface XkabacAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface XkabacAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XkabacAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XkabacAmbulanceWlList {
+        "onEntry-clicked"?: (event: XkabacAmbulanceWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
+        "xkabac-ambulance-wl-app": XkabacAmbulanceWlApp;
+        "xkabac-ambulance-wl-editor": XkabacAmbulanceWlEditor;
         "xkabac-ambulance-wl-list": XkabacAmbulanceWlList;
     }
 }
@@ -31,6 +91,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "xkabac-ambulance-wl-app": LocalJSX.XkabacAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLXkabacAmbulanceWlAppElement>;
+            "xkabac-ambulance-wl-editor": LocalJSX.XkabacAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLXkabacAmbulanceWlEditorElement>;
             "xkabac-ambulance-wl-list": LocalJSX.XkabacAmbulanceWlList & JSXBase.HTMLAttributes<HTMLXkabacAmbulanceWlListElement>;
         }
     }
