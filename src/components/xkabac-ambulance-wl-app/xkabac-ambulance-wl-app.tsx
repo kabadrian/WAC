@@ -55,6 +55,7 @@ export class XkabacAmbulanceWlApp {
       <Host>
         { element === "editor"
         ? <xkabac-ambulance-wl-editor entry-id={entryId}
+            ambulance-id={this.ambulanceId} api-base={this.apiBase}
             oneditor-closed={ () => navigate("./list")} >
           </xkabac-ambulance-wl-editor>
          : <xkabac-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
