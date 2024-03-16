@@ -19,7 +19,10 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  testing: {
-    browserHeadless: "new",
-  },
+ testing: {
+    transformIgnorePatterns: ["/node_modules/(?!axios)"],
+    transform: {
+      "^.+\\.(js|jsx)$": "babel-jest",
+    },
+ }
 };
