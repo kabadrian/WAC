@@ -37,6 +37,7 @@ export class XkabacAmbulanceWlApp {
   }
 
   render() {
+    console.debug("xkabac-ambulance-wl-app.render() - path: %s", this.relativePath);
     let element = "list"
     let entryId = "@new"
   
